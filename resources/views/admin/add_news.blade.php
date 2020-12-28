@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Title</label>
                                     <input type="text" name="title" class="form-control" id="exampleInputEmail1" required
-                                    oninvalid="this.setCustomValidity('You cannot leave the title blank')"
+                      
                                         placeholder="Enter title">
                                 </div>
 
@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Image</label>
                                     <input type="file" name="newsimage" class="form-control" id="exampleInputEmail1" required
-                                    oninvalid="this.setCustomValidity('You cannot leave the file blank')"  >
+                                    oninvalid="this.setCustomValidity('You cannot leave the file blank')" style="border: none"x`  >
                                 </div>
                             </div>
 

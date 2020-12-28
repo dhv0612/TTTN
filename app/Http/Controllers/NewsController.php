@@ -91,4 +91,6 @@ class NewsController extends Controller
         Session::put('message', 'Delete news successfully');
         return Redirect::to('all-news');
     }
+
+    
 }

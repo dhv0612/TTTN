@@ -56,7 +56,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Image</label>
-                                        <input type="file" name="newsimage" class="form-control" id="exampleInputEmail1">
+                                        <input type="file" name="newsimage" class="form-control" id="exampleInputEmail1" style="border: none">
                                             <img src="{{URL::to('public/upload/news/'.$edit_value->newsimage)}}" height="100" width="300">
                                     </div>
                                 </div>

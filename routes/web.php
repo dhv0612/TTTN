@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\NewsController;
 
 //front-end
 Route::get('/',[HomeController::class, 'index']);
+Route::get('/login-user',[HomeController::class, 'login_user']);
+Route::get('/signup-user',[HomeController::class, 'signup_user']);
+
 
 //admin
 Route::get('/admin',[AdminController::class, 'index']);
@@ -33,3 +37,6 @@ Route::post('/save-news',[NewsController::class, 'save_news']);
 Route::get('/edit-news/{newid}',[NewsController::class, 'edit_news']);
 Route::post('/update-news/{newsid}',[NewsController::class, 'update_news']);
 Route::get('/delete-news/{newid}',[NewsController::class, 'delete_news']);
+
+//User
+Route::post('/save-user',[UserController::class, 'save_user']);

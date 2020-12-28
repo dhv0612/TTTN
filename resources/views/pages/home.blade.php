@@ -1,25 +1,26 @@
 @extends('layout')
-
 @section('content')
 
     <!-- HOME -->
     <section id="home">
         <div class="row">
             <div class="owl-carousel owl-theme home-slider">
-                <div class="item item-first">
+                @foreach ($all_news as $key=>$news)
+                <div class="item"  style="background: url({{URL::to('public/upload/news/'.$news->newsimage)}}"  >
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Lorem ipsum dolor sit amet.</h1>
-                                <h3>Voluptas dignissimos esse, explicabo cum fugit eaque, perspiciatis quia ab nisi
-                                    sapiente delectus eiet.</h3>
-                                <a href="jobs.html" class="section-btn btn btn-default">Browse Jobs</a>
+                                <h1>{{$news->title}}</h1>
+                                <h3>{{$news->content}}</h3>
+                                <a href="{{$news->newsurl}}" class="section-btn btn btn-default" target="_blank">View more</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
+              
 
-                <div class="item item-second">
+                {{-- <div class="item item-second">
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
@@ -42,7 +43,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+
+
             </div>
         </div>
     </section>

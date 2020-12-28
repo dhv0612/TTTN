@@ -17,8 +17,29 @@
     <link rel="stylesheet" href="{{ asset('public/frontend/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('public/frontend/css/owl.theme.default.min.css') }}">
 
+
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('public/frontend/css/style.css') }}">
+    <style>
+        .owl-carousel,
+        .owl-theme,
+        .home-slider,
+        .item {
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+
+        .custom-navbar .navbar-brand {
+            height: 70px;
+            width: 160px;
+            margin: 0;
+            padding: 0;
+            background: url("{{ asset('public/frontend/images/logo.png') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+    </style>
 
 </head>
 
@@ -33,7 +54,7 @@
 
 
     <!-- MENU -->
-    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    {{-- <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
         <div class="container">
 
             <div class="navbar-header">
@@ -65,7 +86,91 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Recruit</a></li>
+                    <li><a href="contact.html">User</a></li>
                 </ul>
+            </div>
+
+        </div>
+    </section> --}}
+
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+
+                <!-- lOGO TEXT HERE -->
+                <a href="#" class="navbar-brand logo"></a>
+            </div>
+
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Our Services <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Job Seeker's Site</a></li>
+                </ul>
+                {{-- <ul class="nav navbar-nav" style="float: right;">
+                    <li><a href="{{ URL::to('/login-user') }}">Sign In</a></li>
+                </ul> --}}
+
+                <?php
+
+                $userid = Session::get('userid');
+                if ($userid) { ?>
+
+                <ul class="nav navbar-nav signin">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"><i class="fa fa-user-circle fa-2x"></i></a>
+
+                        <ul class="dropdown-menu users">
+                            <li>
+                                <a> 
+                                    <?php
+                                        $username = Session::get('username');
+                                        echo  $username;
+                                    ?>
+                                </a>
+                            </li>
+                            <li><a>Setting</a></li>
+                            <li><a href="{{URL::to('/')}}">Logout 
+                                    <?php 
+                                        Session::put('userid', null);
+                                        Session::put('username', null);
+                                    ?>
+                                </a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                {{-- <ul class="nav navbar-nav signin">
+                    <li><a href="{{ URL::to('') }}">
+                       </a></li>
+                </ul> --}}
+                <?php } else { ?>
+
+                <ul class="nav navbar-nav signin">
+                    <li><a href="{{ URL::to('/login-user') }}">Login</a></li>
+                </ul>
+
+                <?php }
+                ?>
             </div>
 
         </div>

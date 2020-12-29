@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<?php
+    // $userid = Session::get('userid');
+    //     $username = Session::get('username');
+    //     if(!isset($userid)){
+    //         setcookie('userid', "", time() - 3600);
+    //         setcookie('username', "", time() - 3600);
+    //     }
+    // else{
+    
+
+    // setcookie('userid', $userid, time() + (86400 * 30 *12 *100), "/");
+    //     setcookie('username', $username, time() + (86400 * 30 *12 *100), "/");
+    // }
+?>
 <html lang="en">
 
 <head>
@@ -132,43 +146,41 @@
                 <?php
 
                 $userid = Session::get('userid');
-                if ($userid) { ?>
-
-                <ul class="nav navbar-nav signin">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false"><i class="fa fa-user-circle fa-2x"></i></a>
-
-                        <ul class="dropdown-menu users">
-                            <li>
-                                <a> 
-                                    <?php
-                                        $username = Session::get('username');
-                                        echo  $username;
-                                    ?>
-                                </a>
-                            </li>
-                            <li><a>Setting</a></li>
-                            <li><a href="{{URL::to('/')}}">Logout 
-                                    <?php 
-                                        Session::put('userid', null);
-                                        Session::put('username', null);
-                                    ?>
-                                </a></li>
+                    // $userid = Session::get('userid');
+                $username = Session::get('username');
+                    // if (!isset($_COOKIE['userid'])){
+                    if (!isset($userid)){
+                    ?>
+                        <ul class="nav navbar-nav signin">
+                            <li><a href="{{ URL::to('/login-user') }}">Login</a></li>
                         </ul>
-                    </li>
-                </ul>
+                    <?php } 
+                    else { 
+                    ?>
 
-                {{-- <ul class="nav navbar-nav signin">
-                    <li><a href="{{ URL::to('') }}">
-                       </a></li>
-                </ul> --}}
-                <?php } else { ?>
-
-                <ul class="nav navbar-nav signin">
-                    <li><a href="{{ URL::to('/login-user') }}">Login</a></li>
-                </ul>
-
+                
+                    <ul class="nav navbar-nav signin">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false"><i class="fa fa-user-circle fa-2x"></i></a>
+    
+                            <ul class="dropdown-menu users">
+                                <li>
+                                    <a> 
+                                        <?php
+                                           
+                                            // echo  $_COOKIE['username'];
+                                            echo $username;
+                                        ?>
+                                    </a>
+                                </li>
+                                <li><a>Setting</a></li>
+                                <li><a href="{{URL::to('/logout-user')}}">Logout 
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 <?php }
                 ?>
             </div>

@@ -25,38 +25,7 @@
         }
 
     </style>
-    <script>
-        var checkpassword = function() {
-            if (document.getElementById('password').value ==
-                document.getElementById('confirm_password').value) {
-                document.getElementById('message').style.color = 'blue';
-                document.getElementById('message').style.fontSize = '18px';
-                document.getElementById('message').innerHTML = 'Password matching';
-
-            } else {
-                document.getElementById('message').style.color = 'red';
-                document.getElementById('message').style.fontSize = '18px';
-                document.getElementById('message').innerHTML = 'Password not matching';
-
-            }
-        }
-        var checkform = function() {
-            if (!document.getElementById('username').value.trim().length ||
-                !document.getElementById('password').value.trim().length ||
-                !document.getElementById('confirm_password').value.trim().length ||
-                !document.getElementById('fullname').value.trim().length ||
-                !document.getElementById('email').value.trim().length) {
-                document.getElementById("btn_confirm").disabled = true;
-            } else if (document.getElementById('password').value != document.getElementById('confirm_password')
-                .value) {
-                document.getElementById("btn_confirm").disabled = true;
-            } else {
-                document.getElementById("btn_confirm").disabled = false;
-            }
-
-        }
-
-    </script>
+    
 </head>
 
 
@@ -140,7 +109,7 @@
                 </div>
 
 
-                <button type="submit" id="btn_confirm" onclick="checkform()">Register Now</button>
+                <button type="submit" id="btn_confirm" >Register Now</button>
                 <?php
                 Session::put('notification', null);
                 Session::put('username', null);
@@ -153,5 +122,36 @@
         </div>
     </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<script>
+    var checkpassword = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+            document.getElementById('message').style.color = 'blue';
+            document.getElementById('message').style.fontSize = '18px';
+            document.getElementById('message').innerHTML = 'Password matching';
 
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').style.fontSize = '18px';
+            document.getElementById('message').innerHTML = 'Password not matching';
+
+        }
+    }
+    var checkform = function() {
+        if (!document.getElementById('username').value.trim().length ||
+            !document.getElementById('password').value.trim().length ||
+            !document.getElementById('confirm_password').value.trim().length ||
+            !document.getElementById('fullname').value.trim().length ||
+            !document.getElementById('email').value.trim().length) {
+            document.getElementById("btn_confirm").disabled = true;
+        } else if (document.getElementById('password').value != document.getElementById('confirm_password')
+            .value) {
+            document.getElementById("btn_confirm").disabled = true;
+        } else {
+            document.getElementById("btn_confirm").disabled = false;
+        }
+
+    }
+
+</script>
 </html>

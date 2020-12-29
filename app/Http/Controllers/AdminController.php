@@ -46,6 +46,7 @@ class AdminController extends Controller {
 
     public function logout() {
         $this->CheckLogin();
+
         Session::put( 'username', null );
         Session::put( 'adminid', null );
         return Redirect::to( '/admin' );

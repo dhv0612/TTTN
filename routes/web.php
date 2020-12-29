@@ -40,3 +40,5 @@ Route::get('/delete-news/{newid}',[NewsController::class, 'delete_news']);
 
 //User
 Route::post('/save-user',[UserController::class, 'save_user']);
+Route::post('/check-login-user',[UserController::class, 'check_login_user']);
+Route::get('/logout-user',[UserController::class, 'logout_user']);
